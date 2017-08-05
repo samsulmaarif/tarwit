@@ -19,7 +19,7 @@ Stan #BlankOn di #BekrafHabibieFestival
 ```$consumersecret = "HERE";```  
 ```$accesstoken = "HERE";```  
 ```$accesstokensecret = "HERE";```  
-```$photoAddr = ``` <-- disesuaikan
+```$photoAddr = ``` <-- disesuaikan domainnya saja
 
 ### Edit ```databaseFiles/database_connections.php```
 
