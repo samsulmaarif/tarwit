@@ -22,67 +22,64 @@
 </head>
 <body>
   <div class="row">
-    <div class="col-md-2">
-      
-    </div>
-    <div class="col-md-8">
-      <div class="container wrapper" ng-controller="DbController">  
-  
+    <div class="col-md-10 col-md-offset-1">
+      <div class="wrapper" ng-controller="DbController">
+
       <form id="contact" class="form-horizontal" name="empList" id="empForm" ng-submit="insertInfo(empInfo);">
         <div class="row">
           <div class="col-md-8">
-            <h3>I'm at openSUSE booth in Fossasia'17</h3>
+            <h3>Saya mengunjungi stan <a href="https://twitter.com/hashtag/BlankOn" target="_blank">#BlankOn</a> di<a href="https://twitter.com/hashtag/BekrafHabibieFestival?src=hash" target="_blank">#BekrafHabibieFestival</a></h3>
           </div>
           <div class="col-md-4">
             <div class="row">
               <div class="col-md-6">
-                <img src="images/logo.png" width="80" height="80">
+                <img src="images/logo.png"  width="100%" style="padding-top:30">
               </div>
-              <div class="col-md-6" style="padding-top: 20">
-                <img src="images/logo1.png" width="75" height="30">
+              <div class="col-md-6">
+                <img src="images/logo1.png" width="100%" style="margin-bottom:10">
               </div>
             </div>
-           
-            
+
+
           </div>
         </div>
-        
-        
+
+
         <fieldset>
-          <input type="text" name="emp_name" class="form-control" placeholder="Your Name" ng-model="empInfo.name" value="" autofocus required />
+          <input type="text" name="emp_name" class="form-control" placeholder="Nama" ng-model="empInfo.name" value="" autofocus required />
         </fieldset>
-        <fieldset>      
-        <input type="text" name="emp_country" class="form-control" placeholder="Your Country" ng-model="empInfo.country" autofocus required />
+        <fieldset>
+        <input type="text" name="emp_country" class="form-control" placeholder="Asal / dari" ng-model="empInfo.country" autofocus required />
         </fieldset>
-        <fieldset>      
-        <input type="email" name="emp_email" class="form-control" placeholder="Your Email" ng-model="empInfo.email" autofocus required />
+        <fieldset>
+        <input type="email" name="emp_email" class="form-control" placeholder="Email" ng-model="empInfo.email" autofocus required />
         </fieldset>
         <fieldset>
         <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-at"></i></span>      
-          <input type="text" name="emp_twitterid" class="form-control" placeholder="Your Twitter Account" ng-model="empInfo.twitterid" autofocus required />  
+          <span class="input-group-addon"><i class="fa fa-at"></i></span>
+          <input type="text" name="emp_twitterid" class="form-control" placeholder="Akun Twitter" ng-model="empInfo.twitterid" autofocus required />
         </div>
-        
+
         </fieldset>
         <fieldset>
-          <textarea type="text" name="emp_comment" class="form-control" placeholder="Your Comment" ng-model="empInfo.comment" autofocus required></textarea>  
+          <textarea type="text" name="emp_comment" class="form-control" placeholder="Komentarmu" ng-model="empInfo.comment" autofocus required></textarea>
         </fieldset>
         <fieldset>
             <div class="img-container">
-              <img src="images/user.png" id="results" type="button" class="btn img-thumbnail" data-toggle="modal" data-target="#myModal" ng-click="opencamera()" width="150" height="150">                   
+              <img src="images/user.png" id="results" type="button" class="btn img-thumbnail" data-toggle="modal" data-target="#myModal" ng-click="opencamera()" width="150" height="150">
             </div>
         </fieldset>
         <input id="mydata" type="hidden" name="mydata" ng-model="empInfo.photo"/>
         <div class="alert alert-info" id="tesalert" hidden>
-          <strong>Thank you!</strong> 
+          <strong>Terima Kasih!</strong>
         </div>
         <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Kirim</button>
         </fieldset>
       </form>
 
 
-        
+
     <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -91,30 +88,30 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Camera</h4>
+                <h4 class="modal-title">Kamera</h4>
               </div>
               <div class="modal-body">
                 <div id="my_camera"></div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="take_snapshot1()">Take SnapShot</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="take_snapshot1()">Shoot</button>
               </div>
             </div>
 
           </div>
         </div>
-      
-      
+
+
     <!-- Table to show employee detalis -->
       </div>
     </div>
     <div class="col-md-2">
-      
+
     </div>
   </div>
-                       
-  
+
+
 <!-- Include controller -->
 <script language="JavaScript">
   Webcam.set({
@@ -128,7 +125,7 @@
 
   //Webcam.attach( '#my_camera' );
 </script>
-  
+
 
 </body>
 </html>

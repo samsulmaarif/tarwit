@@ -1,6 +1,6 @@
 <?php
 // Including database connections
-require_once 'database_connections.php'; 
+require_once 'database_connections.php';
 // mysqli query to fetch all data from database
 $query = "SELECT * from visitor_details ORDER BY visitor_id ASC";
 $result = mysqli_query($con, $query);

@@ -5,14 +5,15 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 // Function to get personal details from the database
 	getInfo();
 	function getInfo(){
-	// Sending request to EmpDetails.php files 
-		$http.post('http://visitor.opensuse.id/databaseFiles/empDetails.php').success(function(data){
-		// Stored the returned data into scope 
+	// Sending request to EmpDetails.php files
+			// CHANGE with your domain
+			$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/empDetails.php').success(function(data){
+		// Stored the returned data into scope
 		$scope.details = data;
 		});
 	}
 
-	// Setting default value of gender 
+	// Setting default value of gender
 	$scope.empInfo = {'gender' : 'male'};
 	// Enabling show_form variable to enable Add employee button
 	$scope.show_form = true;
@@ -21,7 +22,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 		$('#empForm').slideToggle();
 		$('#editForm').css('display', 'none');
 	}
-	
+
 	$scope.opencamera =function(){
 		Webcam.attach( '#my_camera' );
 	}
@@ -48,7 +49,9 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 	}
 
 	$scope.insertInfo = function(info){
-		$http.post('http://visitor.opensuse.id/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,"comment":info.comment,"photo":info.photo,"email":info.email,"twitterid":info.twitterid}).success(function(data){
+		// CHANGE with your domain
+		$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
+		"comment":info.comment,"photo":info.photo,"email":info.email,"twitterid":info.twitterid}).success(function(data){
 			if (data == true) {
 				getInfo();
 				$('#empForm').css('display', 'none');
@@ -57,7 +60,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 			console.log("masuk");
 			$('#tesalert').show();
 			setTimeout(function(){ location.reload(); }, 1000);
-			
+
 		});
 	}
 
@@ -70,13 +73,13 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 	}
 
 	$scope.currentUser = {};
-	
+
 	$scope.editInfo = function(info){
 		$scope.currentUser = info;
 		$('#empForm').slideUp();
 		$('#editForm').slideToggle();
 	}
-	
+
 	$scope.UpdateInfo = function(info){
 		$http.post('databaseFiles/updateDetails.php',{"id":info.emp_id,"name":info.emp_name,"country":info.emp_country,"comment":info.emp_comment,"email":info.emp_email,"twitterid":info.emp_twitterid}).success(function(data){
 			$scope.show_form = true;
