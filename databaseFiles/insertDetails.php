@@ -10,7 +10,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 //$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 //$content = $connection->get("account/verify_credentials");
 
-$twitteruser = "BlankOnLinux";
+$twitteruser = "BekrafHabibieFestival";
 $notweets = 30;
 $consumerkey = "HERE";
 $consumersecret = "HERE";
@@ -30,6 +30,7 @@ $name = mysqli_real_escape_string($con, $data->name);
 $country = mysqli_real_escape_string($con, $data->country);
 $gender = mysqli_real_escape_string($con, $data->gender);
 $comment = mysqli_real_escape_string($con, $data->comment);
+$stan = mysqli_real_escape_string($con, $data->stan);
 $email = mysqli_real_escape_string($con, $data->email);
 $twitterid = mysqli_real_escape_string($con, $data->twitterid);
 $twitterid = "@".$twitterid;
@@ -40,7 +41,7 @@ $photoAddr = "/var/www/html/tarwit/databaseFiles/".$photo_name;
 
 $connection = getConnectionWithAccessToken($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
 
-$str_name = "Saya ".$name." dari  ".$country.", Saya mengunjungi stan #BlankOn di #BekrafHabibieFestival ".$twitterid;
+$str_name = "Saya ".$name." dari  ".$country.", Saya mengunjungi stan ".$stan." di #BekrafHabibieFestival ".$twitterid;
 //$tweets = $connection->post("statuses/update", ["status" => $str_name]);
 
 /*
@@ -74,7 +75,7 @@ echo "cek";
 echo json_encode($result);
 
 // mysqli insert query
-$query = "INSERT into visitor_details (visitor_name,visitor_country,visitor_email,visitor_twitterid,visitor_comment,visitor_photoaddr) VALUES ('$name','$country','$email','$twitterid','$comment','$photoAddr')";
+$query = "INSERT into visitor_details (visitor_name,visitor_country,visitor_email,visitor_stan,visitor_twitterid,visitor_comment,visitor_photoaddr) VALUES ('$name','$country','$email','$stan','$twitterid','$comment','$photoAddr')";
 // Inserting data into database
 mysqli_query($con, $query);
 echo true;

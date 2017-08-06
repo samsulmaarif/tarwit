@@ -1,7 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
-.wrapper{
-min-height: 960px;
-}
 form#empForm, form#editForm {
 padding: 0 35px 15px;
 }
@@ -14,8 +11,44 @@ table tr th{
 .search-box {
     padding-bottom: 0;
 }
-@media screen and (max-width: 368px){
-.wrapper{
-    min-width: 340px;
-}   
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    background:#1a1a1a url(images/background-foto.jpg) center center no-repeat fixed;
+    background-size: cover;
+}
+.header-image{
+    max-width: 100%;
+    position: relative;
+}
+.header-image img{
+    width: auto;
+    max-width: 100%;
+    height: 40%;
+    margin-top: 5%;
+}
+.left-image{
+    top:0;
+    left: 0;
+    margin:0;
+    position: absolute;
+}
+.right-image{
+    bottom:0;
+    right: 0;
+    margin:0;
+    position: fixed;
+}
+fieldset{
+    margin: 5px;
+}
+.img-container{
+    margin: auto;
+    text-align: center;
 }

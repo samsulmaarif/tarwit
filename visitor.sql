@@ -31,6 +31,7 @@ CREATE TABLE `visitor_details` (
   `visitor_name` varchar(255) NOT NULL,
   `visitor_country` varchar(255) NOT NULL,
   `visitor_email` varchar(255) NOT NULL,
+  `visitor_stan` varchar(255) NOT NULL,
   `visitor_twitterid` varchar(255) NOT NULL,
   `visitor_comment` varchar(255) NOT NULL,
   `visitor_photoaddr` varchar(255) DEFAULT NULL

@@ -7,7 +7,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 	function getInfo(){
 	// Sending request to EmpDetails.php files
 			// CHANGE with your domain
-			$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/empDetails.php').success(function(data){
+			$http.post('http://xxx.xxx.xxx/databaseFiles/empDetails.php').success(function(data){
 		// Stored the returned data into scope
 		$scope.details = data;
 		});
@@ -50,8 +50,8 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 
 	$scope.insertInfo = function(info){
 		// CHANGE with your domain
-		$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
-		"comment":info.comment,"photo":info.photo,"email":info.email,"twitterid":info.twitterid}).success(function(data){
+		$http.post('http://xxx.xxx.xxx/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
+		"comment":info.comment,"photo":info.photo,"email":info.email,"stan":info.emp_stan,"twitterid":info.twitterid}).success(function(data){
 			if (data == true) {
 				getInfo();
 				$('#empForm').css('display', 'none');
@@ -81,7 +81,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 	}
 
 	$scope.UpdateInfo = function(info){
-		$http.post('databaseFiles/updateDetails.php',{"id":info.emp_id,"name":info.emp_name,"country":info.emp_country,"comment":info.emp_comment,"email":info.emp_email,"twitterid":info.emp_twitterid}).success(function(data){
+		$http.post('databaseFiles/updateDetails.php',{"id":info.emp_id,"name":info.emp_name,"country":info.emp_country,"comment":info.emp_comment,"email":info.emp_email,"stan":info.emp_stan,"twitterid":info.emp_twitterid}).success(function(data){
 			$scope.show_form = true;
 			if (data == true) {
 				getInfo();

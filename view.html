@@ -16,16 +16,10 @@
 <body>
 <div class="container wrapper" ng-controller="DbController">
 <div class="row">
-	<div class="col-md-2">
-		<img src="images/logo.png" width="100%" style="padding-top:60">
-	</div>
-	<div class="col-md-8">
+	<div class="col-md-8 col-md-offset-2">
 		<h1 class="text-center">Daftar Pengunjung</h1>
-		<h4 class="text-center"> Stan #BlankOn di #BekrafHabibieFestival <br>
+		<h4 class="text-center">#BekrafHabibieFestival <br>
 7 s.d 13 Agustus 2017</h4>
-	</div>
-	<div class="col-md-2" style="padding-top: 20">
-		<img src="images/logo1.png" width="100%" style="margin-bottom:10">
 	</div>
 </div>
 
@@ -39,6 +33,7 @@
 <th>Name</th>
 <th>Country</th>
 <th>Email</th>
+<th>Stan</th>
 <th>Twitter Account</th>
 <th>Comment</th>
 </tr>
@@ -47,6 +42,7 @@
 <span>{{detail.visitor_name}}</span></td>
 <td>{{detail.visitor_country}}</td>
 <td>{{detail.visitor_email}}</td>
+<td>{{detail.visitor_stan}}</td>
 <td>{{detail.visitor_twitterid}}</td>
 <td>{{detail.visitor_comment}}</td>
 </tr>

@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!-- Include main CSS -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Include jQuery library -->
 <script src="js/jQuery/jquery.min.js"></script>
@@ -21,61 +20,61 @@
 <script src="css/mui/extra/mui-combined.js"></script>
 </head>
 <body>
-  <div class="row">
+  <div class="container">
+  <img src="images/element-pojok1.png" class="left-image">
+  <img src="images/element-pojok2.png" class="right-image">
+    <div class="row">
+    <div class="col-md-6">
+        <div class="header-image">
+          <img src="images/logo-habfest2017rev1.png">
+        </div>
+    </div>
+    <div class="col-md-6">
+      <h2>Mari ramaikan acara Bekraf Habibie Festival</h2>
+      <h3>Berswafoto di stan yang anda kunjungi</h3>
+    </div>
     <div class="col-md-10 col-md-offset-1">
-      <div class="wrapper" ng-controller="DbController">
+      <div class="wrapper" id="wrapper" ng-controller="DbController">
 
       <form id="contact" class="form-horizontal" name="empList" id="empForm" ng-submit="insertInfo(empInfo);">
-        <div class="row">
-          <div class="col-md-8">
-            <h3>Saya mengunjungi stan <a href="https://twitter.com/hashtag/BlankOn" target="_blank">#BlankOn</a> di<a href="https://twitter.com/hashtag/BekrafHabibieFestival?src=hash" target="_blank">#BekrafHabibieFestival</a></h3>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-6">
-                <img src="images/logo.png"  width="100%" style="padding-top:30">
-              </div>
-              <div class="col-md-6">
-                <img src="images/logo1.png" width="100%" style="margin-bottom:10">
-              </div>
+        <div class="col-md-6">
+          <fieldset>
+            <input type="text" name="emp_name" class="form-control" placeholder="Nama" ng-model="empInfo.name" value="" autofocus required />
+          </fieldset>
+          <fieldset>
+            <input type="text" name="emp_country" class="form-control" placeholder="Asal / dari" ng-model="empInfo.country" autofocus required />
+          </fieldset>
+          <fieldset>
+            <input type="email" name="emp_email" class="form-control" placeholder="Email" ng-model="empInfo.email" autofocus required />
+          </fieldset>
+          <fieldset>
+            <input type="stan" name="emp_stan" class="form-control" placeholder="Stan yang sedang dikunjungi" ng-model="empInfo.stan" autofocus required />
+          </fieldset>
+          <fieldset>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-at"></i></span>
+              <input type="text" name="emp_twitterid" class="form-control" placeholder="Akun Twitter" ng-model="empInfo.twitterid" autofocus required />
             </div>
-
-
+          </fieldset>
+          <fieldset>
+            <textarea type="text" name="emp_comment" class="form-control" placeholder="Komentarmu" ng-model="empInfo.comment" autofocus required></textarea>
+          </fieldset>
+        </div>
+        <div class="col-md-6">
+          <fieldset>
+              <div class="img-container">
+                <span>Klik untuk swafoto (selfie) </span><br>
+                <img src="images/user.png" id="results" type="button" class="btn img-thumbnail" data-toggle="modal" data-target="#myModal" ng-click="opencamera()" width="200" height="200">
+              </div>
+          </fieldset>
+          <input id="mydata" type="hidden" name="mydata" ng-model="empInfo.photo"/>
+          <div class="alert alert-info" id="tesalert" hidden>
+            <strong>Terima Kasih!</strong>
           </div>
+          <fieldset>
+            <button name="submit" type="submit" class="btn btn-primary btn-block" id="contact-submit" data-submit="...Sending">Kirim</button>
+          </fieldset>
         </div>
-
-
-        <fieldset>
-          <input type="text" name="emp_name" class="form-control" placeholder="Nama" ng-model="empInfo.name" value="" autofocus required />
-        </fieldset>
-        <fieldset>
-        <input type="text" name="emp_country" class="form-control" placeholder="Asal / dari" ng-model="empInfo.country" autofocus required />
-        </fieldset>
-        <fieldset>
-        <input type="email" name="emp_email" class="form-control" placeholder="Email" ng-model="empInfo.email" autofocus required />
-        </fieldset>
-        <fieldset>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-at"></i></span>
-          <input type="text" name="emp_twitterid" class="form-control" placeholder="Akun Twitter" ng-model="empInfo.twitterid" autofocus required />
-        </div>
-
-        </fieldset>
-        <fieldset>
-          <textarea type="text" name="emp_comment" class="form-control" placeholder="Komentarmu" ng-model="empInfo.comment" autofocus required></textarea>
-        </fieldset>
-        <fieldset>
-            <div class="img-container">
-              <img src="images/user.png" id="results" type="button" class="btn img-thumbnail" data-toggle="modal" data-target="#myModal" ng-click="opencamera()" width="150" height="150">
-            </div>
-        </fieldset>
-        <input id="mydata" type="hidden" name="mydata" ng-model="empInfo.photo"/>
-        <div class="alert alert-info" id="tesalert" hidden>
-          <strong>Terima Kasih!</strong>
-        </div>
-        <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Kirim</button>
-        </fieldset>
       </form>
 
 
@@ -110,15 +109,15 @@
 
     </div>
   </div>
-
+</div>
 
 <!-- Include controller -->
 <script language="JavaScript">
   Webcam.set({
-    width: 560,
-    height: 420,
-    dest_width: 320,
-    dest_height: 240,
+    width: 720,
+    height: 480,
+    dest_width: 720,
+    dest_height: 480,
     image_format: 'jpeg',
     jpeg_quality: 90
   });
