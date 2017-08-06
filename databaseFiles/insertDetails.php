@@ -29,7 +29,7 @@ $email = mysqli_real_escape_string($con, $data->email);
 $twitterid = mysqli_real_escape_string($con, $data->twitterid);
 $twitterid = "@".$twitterid;
 $binary_data = base64_decode( mysqli_real_escape_string($con, $data->photo) );
-$photo_name = "img/".$twitterid.".jpg";
+$photo_name = "img/".$name.".jpg";
 $photoAddr = "/var/www/html/tarwit/databaseFiles/".$photo_name;
     // save to server (beware of permissions)
 

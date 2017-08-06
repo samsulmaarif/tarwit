@@ -24,9 +24,16 @@ body{
     background-size: cover;
 }
 
-body.view well{
+body.view{
     color: #000;
 }
+body.view h1,
+body.view h2,
+body.view h3,
+body.view h4{
+    color: #fff;
+}
+
 .header-image{
     max-width: 100%;
     position: relative;
