@@ -13,7 +13,7 @@
 <!-- Include Bootstrap Javascript -->
 <script src="js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="view">
 <div class="container wrapper" ng-controller="DbController">
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
@@ -27,6 +27,7 @@
 
 <!-- Table to show employee detalis -->
 <br>
+<div class="panel panel-default">
 <div class="table-responsive">
 <table class="table table-hover">
 <tr>
@@ -47,6 +48,7 @@
 <td>{{detail.visitor_comment}}</td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>

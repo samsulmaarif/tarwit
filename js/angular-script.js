@@ -34,29 +34,21 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
       document.getElementById('results').src =data_uri;
       var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
         console.log(raw_image_data);
-        //document.getElementById('mydata').value = raw_image_data;
       $scope.empInfo.photo= raw_image_data;
       Webcam.reset();
-      /*
-      Webcam.upload( data_uri, 'databaseFiles/imageStore.php', function(code, text) {
-            // Upload complete!
-            // 'code' will be the HTTP response code from the server, e.g. 200
-            // 'text' will be the raw response content
-            console.log("200");
-        } );
-      */
     } );
 	}
 
 	$scope.insertInfo = function(info){
 		// CHANGE with your domain
 		$http.post('http://xxx.xxx.xxx/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
-		"comment":info.comment,"photo":info.photo,"email":info.email,"stan":info.emp_stan,"twitterid":info.twitterid}).success(function(data){
+		"comment":info.comment,"photo":info.photo,"email":info.email,"stan":info.stan,"twitterid":info.twitterid}).success(function(data){
 			if (data == true) {
 				getInfo();
 				$('#empForm').css('display', 'none');
 				console.log("success");
 			}
+			console.log(data)
 			console.log("masuk");
 			$('#tesalert').show();
 			setTimeout(function(){ location.reload(); }, 1000);
