@@ -20,8 +20,12 @@ body{
     bottom: 0;
     right: 0;
     color: #fff;
-    background:#1a1a1a url(images/background-foto.jpg) center center no-repeat fixed;
+    background:#1a1a1a url(../images/background-foto.jpg) center center no-repeat fixed;
     background-size: cover;
+}
+
+body.view well{
+    color: #000;
 }
 .header-image{
     max-width: 100%;
