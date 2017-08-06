@@ -6,7 +6,7 @@ Stan #BlankOn di #BekrafHabibieFestival
 - subdomain
 - apache2
 - mysql-server
-- php + php-curl
+- php php-curl php-xml php-mbstring
 - composer
 - Twitter apps api
 
