@@ -12,10 +12,10 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 $twitteruser = "BlankOnLinux";
 $notweets = 30;
-$consumerkey = "HERE";
-$consumersecret = "HERE";
-$accesstoken = "HERE";
-$accesstokensecret = "HERE";
+$consumerkey = getenv('TW_CONSUMER_KEY');
+$consumersecret = getenv('TW_SECRET_KEY');
+$accesstoken = getenv('TW_ACCESS_TOKEN');
+$accesstokensecret = getenv('TW_ACCESS_TOKEN_SECRET');
 
 function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
   $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
@@ -28,14 +28,14 @@ $data = json_decode(file_get_contents("php://input"));
 // Escaping special characters from submitting data & storing in new variables.
 $name = mysqli_real_escape_string($con, $data->name);
 $country = mysqli_real_escape_string($con, $data->country);
-$gender = mysqli_real_escape_string($con, $data->gender);
+//$gender = mysqli_real_escape_string($con, $data->gender);
 $comment = mysqli_real_escape_string($con, $data->comment);
 $email = mysqli_real_escape_string($con, $data->email);
 $twitterid = mysqli_real_escape_string($con, $data->twitterid);
 $twitterid = "@".$twitterid;
 $binary_data = base64_decode( mysqli_real_escape_string($con, $data->photo) );
 $photo_name = "img/".$twitterid.".jpg";
-$photoAddr = "/var/www/html/tarwit/databaseFiles/".$photo_name;
+$photoAddr = "/var/www/html/tmp/".$photo_name;
     // save to server (beware of permissions)
 
 $connection = getConnectionWithAccessToken($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
