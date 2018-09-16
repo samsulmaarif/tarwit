@@ -7,10 +7,15 @@ RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev \
  libpng-dev libmcrypt-dev mysql-client libcurl3-dev libicu-dev libxml2-dev libbz2-dev
 RUN docker-php-ext-install mbstring mysqli pdo_mysql curl json intl gd xml zip bz2 opcache
 
-
 COPY ./docker/tarwit.conf /etc/apache2/sites-available/000-default.conf
 COPY ./docker/ports.conf /etc/apache2/ports.conf
 #COPY ./docker/hosts /etc/hosts
+
+RUN usermod -s /bin/bash www-data
+RUN groupmod -g 1005 www-data
+RUN usermod -u 1005 -g 1005 www-data
+RUN chown -Rf www-data.www-data /var/run/apache2
+RUN chown -Rf www-data.www-data /var/log/apache2
 
 RUN a2enmod rewrite
 #RUN a2ensite tarwit
@@ -25,8 +30,5 @@ RUN rm -rf /var/cache/apt/archives/* && rm -rf /tmp/*
 
 EXPOSE 8000
 
-RUN usermod -s /bin/bash www-data
-RUN groupmod -g 1005 www-data
-RUN usermod -u 1005 -g 1005 www-data
 USER www-data:www-data
 
