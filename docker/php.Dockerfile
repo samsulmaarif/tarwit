@@ -26,5 +26,7 @@ RUN rm -rf /var/cache/apt/archives/* && rm -rf /tmp/*
 EXPOSE 8000
 
 RUN usermod -s /bin/bash www-data
+RUN groupmod -g 1005 www-data
+RUN usermod -u 1005 -g 1005 www-data
 USER www-data:www-data
 
