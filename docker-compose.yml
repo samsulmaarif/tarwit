@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  php:
+    build: 
+      context: ./
+      dockerfile: ./docker/php.Dockerfile
+    container_name: tarwitweb
+    volumes:
+      - ./:/var/www/html
+      - ./logs:/var/log/apache2
+    ports:
+      - '8000:8000'
+    #deploy:
+    #  mode: replicated
+    #  replicas: 2
+    environment:
+      - VIRTUAL_HOST=tarwit.blankonlinux.or.id
+      - TW_CONSUMER_KEY=
+      - TW_SECRET_KEY=
+      - TW_ACCESS_TOKEN=
+      - TW_ACCESS_TOKEN_SECRET=
+      - DB_HOST=tarwitdb
+      - DB_USER=root
+      - DB_NAME=tarwit
+      - DB_PASSWD=strongpassword
+    depends_on:
+      - db
+
+  db:
+    build: 
+      context: ./
+      dockerfile: ./docker/mysql.Dockerfile
+    container_name: tarwitdb
+    volumes:
+      - ./dbdata/:/var/lib/mysql

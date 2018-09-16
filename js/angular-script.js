@@ -7,7 +7,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 	function getInfo(){
 	// Sending request to EmpDetails.php files
 			// CHANGE with your domain
-			$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/empDetails.php').success(function(data){
+			$http.post('/databaseFiles/empDetails.php').success(function(data){
 		// Stored the returned data into scope
 		$scope.details = data;
 		});
@@ -50,7 +50,7 @@ crudApp.controller("DbController",['$scope','$http', function($scope,$http){
 
 	$scope.insertInfo = function(info){
 		// CHANGE with your domain
-		$http.post('http://pengunjung.blankonlinux.or.id/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
+		$http.post('/databaseFiles/insertDetails.php',{"name":info.name,"country":info.country,
 		"comment":info.comment,"photo":info.photo,"email":info.email,"twitterid":info.twitterid}).success(function(data){
 			if (data == true) {
 				getInfo();
