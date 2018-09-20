@@ -9,21 +9,21 @@ RUN docker-php-ext-install mbstring mysqli pdo_mysql curl json intl gd xml zip b
 
 COPY ./docker/tarwit.conf /etc/apache2/sites-available/000-default.conf
 COPY ./docker/ports.conf /etc/apache2/ports.conf
-#COPY ./docker/hosts /etc/hosts
+COPY ./docker/apache2.conf /etc/apache2/apache2.conf
 
-RUN usermod -s /bin/bash www-data
-RUN groupmod -g 1005 www-data
-RUN usermod -u 1005 -g 1005 www-data
-RUN chown -Rf www-data.www-data /var/run/apache2
-RUN chown -Rf www-data.www-data /var/log/apache2
+RUN usermod -s /bin/bash www-data 
+ && groupmod -g 1005 www-data
+ && usermod -u 1005 -g 1005 www-data 
+ && chown -Rf www-data.www-data /var/run/apache2 
+ && chown -Rf www-data.www-data /var/log/apache2
 
 RUN a2enmod rewrite
-#RUN a2ensite tarwit
-RUN service apache2 restart
+ && a2ensite tarwit
+ && service apache2 restart
 
 # install composer
-RUN curl -sS https://getcomposer.org/installer | php 
-RUN mv composer.phar /usr/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php
+ && mv composer.phar /usr/bin/composer
 
 # cleanup
 RUN rm -rf /var/cache/apt/archives/* && rm -rf /tmp/*
