@@ -40,7 +40,7 @@ $photoAddr = "/var/www/html/tmp/".$photo_name;
 
 $connection = getConnectionWithAccessToken($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
 
-$str_name = "Saya ".$name." dari  ".$country.", Saya mengunjungi stan #BlankOn di #BekrafHabibieFestival ".$twitterid;
+$str_name = $comment . ". Yuk, berkunjung ke stan #BlankOn di #BekrafHabibieFestival -- " . $name . " (" . $twitterid . ") dari " . $country;
 //$tweets = $connection->post("statuses/update", ["status" => $str_name]);
 
 /*
